@@ -17,4 +17,4 @@ $route = new Route(new Request, new Response);
 
 $route->resolve();
 
-var_dump(main_path_layout());
+// var_dump(error_path());

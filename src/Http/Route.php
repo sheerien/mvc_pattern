@@ -1,5 +1,6 @@
 <?php
 namespace Core\Http;
+use Core\View\View;
 
 class Route
 {
@@ -100,11 +101,10 @@ class Route
          * @var mixed $action
          */
         $action = self::$routes[$method][$path] ?? false;
-
-        if(!$action){
-            return;
-        }
         //404 handler
+        if(!array_key_exists($path, self::$routes[$method])){
+            View::makeError('404');
+        }
 
         /**
          * Handler Route is A Callback Function 
@@ -125,7 +125,8 @@ class Route
         //     $action = str_contains($action, '@') ? explode('@', $action) : new \Exception("string should be contain [ @ ] in between controller class and method");
 
         //     if(is_array($action)){
-        //         call_user_func_array([  __NAMESPACE__.$action[0], $action[1]], [$this->request->options()]);
+            
+        //         call_user_func_array([ $action[0], $action[1]], [$this->request->options()]);
         //     }
         // }
     }
