@@ -1,5 +1,7 @@
 <?php
 
+use Core\View\View;
+
 define('DS', DIRECTORY_SEPARATOR);
 define('MAIN_LAYOUTS_FILE_PATH', 'views' . DS . 'layouts' . DS . 'main.php');
 define('VIEW_PATH', 'views' . DS);
@@ -82,6 +84,12 @@ if (!function_exists('main_path_layout')) {
                 return base_path(ERROR_PATH) . $errorPath;
             }
             return base_path(ERROR_PATH);
+        }
+    }
+
+    if(!function_exists('view')){
+        function view($view, $params = []){
+            View::make($view, $params);
         }
     }
 }
