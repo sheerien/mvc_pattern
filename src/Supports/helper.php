@@ -5,6 +5,7 @@ use Core\View\View;
 define('DS', DIRECTORY_SEPARATOR);
 define('MAIN_LAYOUTS_FILE_PATH', 'views' . DS . 'layouts' . DS . 'main.php');
 define('VIEW_PATH', 'views' . DS);
+define('NAVBAR_PATH', 'views' . DS . 'partials' . DS);
 define('ERROR_PATH', 'views' . DS .'errors' . DS);
 
 if(! function_exists('env')){
@@ -87,7 +88,25 @@ if (!function_exists('main_path_layout')) {
         }
     }
 
+
+    if(!function_exists('nav_path')){
+        
+        function nav_path($path = ''){
+            if(!empty($path)){
+                return base_path(NAVBAR_PATH) . $path . '.php';
+            }
+            return base_path(NAVBAR_PATH) . 'navbar.php';
+        }
+    }
+
     if(!function_exists('view')){
+
+        /**
+         * Summary of view
+         * @param mixed $view
+         * @param mixed $params
+         * @return void
+         */
         function view($view, $params = []){
             View::make($view, $params);
         }
