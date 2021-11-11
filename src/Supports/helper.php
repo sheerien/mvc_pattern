@@ -9,6 +9,7 @@ define('VIEW_PATH', 'views' . DS);
 define('NAVBAR_PATH', 'views' . DS . 'partials' . DS);
 define('ERROR_PATH', 'views' . DS .'errors' . DS);
 define('AUTOLOAD_PATH', 'vendor'. DS .'autoload.php');
+define('WEPROUTE_PATH', 'Routes'. DS .'web.php');
 
 if(! function_exists('env')){
     /**
@@ -139,5 +140,14 @@ if(!function_exists('autoload_path')){
      */
     function autoload_path(){
         return base_path(AUTOLOAD_PATH);
+    }
+}
+if(!function_exists('webroute_path')){
+    /**
+     * webroute_path
+     * @return string
+     */
+    function webroute_path(){
+        return base_path(WEPROUTE_PATH);
     }
 }
