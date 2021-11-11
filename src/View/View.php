@@ -1,6 +1,8 @@
 <?php
 namespace Core\View;
 
+use PDO;
+
 class View
 {   
     /**

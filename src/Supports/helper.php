@@ -1,5 +1,6 @@
 <?php
 
+use BootStrap\App;
 use Core\View\View;
 
 define('DS', DIRECTORY_SEPARATOR);
@@ -7,6 +8,7 @@ define('MAIN_LAYOUTS_FILE_PATH', 'views' . DS . 'layouts' . DS . 'main.php');
 define('VIEW_PATH', 'views' . DS);
 define('NAVBAR_PATH', 'views' . DS . 'partials' . DS);
 define('ERROR_PATH', 'views' . DS .'errors' . DS);
+define('AUTOLOAD_PATH', 'vendor'. DS .'autoload.php');
 
 if(! function_exists('env')){
     /**
@@ -33,6 +35,24 @@ if(! function_exists('value')){
 
         return ($value instanceof Closure) ? $value() : $value;
         
+    }
+}
+
+/**
+ *  singleton pattern for bootstrap system in one instance
+ */
+if(!function_exists('app')){
+
+    /**
+     * app function for bootstrap framework
+     * @return App|null
+     */
+    function app(){
+        static $instance = null;
+        if(is_null($instance)){
+            $instance = new App;
+        }
+        return $instance;
     }
 }
 
@@ -100,7 +120,6 @@ if (!function_exists('main_path_layout')) {
     }
 
     if(!function_exists('view')){
-
         /**
          * Summary of view
          * @param mixed $view
@@ -110,5 +129,15 @@ if (!function_exists('main_path_layout')) {
         function view($view, $params = []){
             View::make($view, $params);
         }
+    }
+}
+
+if(!function_exists('autoload_path')){
+    /**
+     * autoload_path
+     * @return string
+     */
+    function autoload_path(){
+        return base_path(AUTOLOAD_PATH);
     }
 }

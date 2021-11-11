@@ -8,5 +8,6 @@ class HomeController
     {
         // echo "Home Controller " . $id[1];
         return view('home');
+        // return var_dump(app()); 
     }
 }
