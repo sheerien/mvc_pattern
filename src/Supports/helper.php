@@ -9,7 +9,7 @@ define('VIEW_PATH', 'views' . DS);
 define('NAVBAR_PATH', 'views' . DS . 'partials' . DS);
 define('ERROR_PATH', 'views' . DS .'errors' . DS);
 define('AUTOLOAD_PATH', 'vendor'. DS .'autoload.php');
-define('WEPROUTE_PATH', 'Routes'. DS .'web.php');
+define('WEPROUTE_PATH', 'Routes'. DIRECTORY_SEPARATOR .'web.php');
 
 if(! function_exists('env')){
     /**

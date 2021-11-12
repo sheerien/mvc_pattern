@@ -40,7 +40,7 @@ class View
 
 
     /**
-     * Summary of getViewContent
+     * get view content
      * @param string $view
      * @param bool $isError
      * @param string $params
@@ -71,10 +71,16 @@ class View
         }
 
         if($isError){
+            /**
+             * include 404 not found
+             */
             include $view;
             
         } else {
             ob_start();
+            /**
+             * include page is exist
+             */
             include $view;
             return ob_get_clean();
         }
