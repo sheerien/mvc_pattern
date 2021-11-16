@@ -11,13 +11,13 @@ class Route
     public static array $routes=[];
 
     /**
-     * Summary of 
+     * $request obj from Request 
      * @var Request $request
      */
     public Request $request;
 
     /**
-     * Summary of 
+     * $response obj from Response
      * @var Response $response
      */
     public Response $response;
